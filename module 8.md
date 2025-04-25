@@ -152,13 +152,19 @@ Free the memory allocated for each string in s Free the memory allocated for s
  
 Program:
 ```
-#include<stdio.h> #include<string.h> #include<stdlib.h>
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
 int next_per(int n, char **s)
 {
-for(int i = n - 1 ; i > 0 ; i--) if(strcmp(s[i],s[i-1]) > 0)
+for(int i = n - 1 ; i > 0 ; i--)
+if(strcmp(s[i],s[i-1]) > 0)
 {
 int j=i+1;
-for(;j<n;j++) if (strcmp(s[j],s[i-1])<=0) break; char *t=s[i-1];
+for(;j<n;j++)
+if (strcmp(s[j],s[i-1])<=0)
+break;
+char *t=s[i-1];
 s[i-1]=s[j-1];
 s[j-1]=t;
 for(;i<n-1;i++,n--)
@@ -175,20 +181,27 @@ return 0;
 }
 int main()
 {
-char **s; int n;
-scanf("%d",&n); s=calloc(n,sizeof(char*)); for(int i=0;i<n;i++)
+char **s;
+int n;
+scanf("%d",&n);
+s=calloc(n,sizeof(char*));
+for(int i=0;i<n;i++)
 {
-s[i]=calloc(n,sizeof(char*)*5); scanf("%s",s[i]);
+s[i]=calloc(n,sizeof(char*)*5);
+scanf("%s",s[i]);
 }
 do
 {
-for(int i=0;i<n;i++) printf("%s%c",s[i],i==n-1?'\n':' ');
+for(int i=0;i<n;i++)
+printf("%s%c",s[i],i==n-1?'\n':' ');
 }
 while(next_per(n,s));
  
 {
-for(int i=0;i<n;i++) free (s[i]);
-free(s); return 0;
+for(int i=0;i<n;i++)
+free (s[i]);
+free(s);
+return 0;
 }
 }
 
@@ -235,7 +248,9 @@ int len=n*2-1; for (i=0;i<len;i++)
 for (j=0;j<len;j++)
 {
 min=i<j?i:j;
-min=min<len-i-1?min:len-1-i; min=min<len-j-1?min:len-1-j; printf("%d ",n-min);
+min=min<len-i-1?min:len-1-i;
+min=min<len-j-1?min:len-1-j;
+printf("%d ",n-min);
 }
 printf("\n");
 }
@@ -249,7 +264,8 @@ return 0;
 Output:
 
 
-![Uploading Screenshot 2025-04-25 110214.png…]()
+![Screenshot 2025-04-25 110214](https://github.com/user-attachments/assets/4449769b-468c-4c7c-9f31-dc82682df0dc)
+
 
 
 
@@ -303,7 +319,8 @@ void square(){
 Output:
 
 
-![Uploading Screenshot 2025-04-25 110317.png…]()
+![Screenshot 2025-04-25 110317](https://github.com/user-attachments/assets/5d87bef4-b6eb-4a32-a8ef-5bc909e6771c)
+
 
 
 
